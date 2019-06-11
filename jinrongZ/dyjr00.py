@@ -24,4 +24,4 @@ elif i==3:
 else:
     huobi.usdt()
     huobi.hb(list2)
-    gp.gupiao(list
+    gp.gupiao(list)
