@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-此代码从表格里面取数据传到URL里面
 import requests
 import xlrd
 import time
