@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 此代码用于直接发邮件
 
 import smtplib
 from email.mime.text import MIMEText
