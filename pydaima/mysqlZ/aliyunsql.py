@@ -1,10 +1,10 @@
 import pymysql
 def my_db(sq1):
     conn = pymysql.Connect(
-        host='47.106.143.70',##mysql服务器地址
+        host='47.XXX',##mysql服务器地址
         port=3306,##mysql服务器端口号
-        user='yhj666',##用户名
-        passwd='aa123456',##密码  J5p";~OVazNl%y)?
+        user='XXX',##用户名
+        passwd='XXXX',##密码  J5p";~OVazNl%y)?
         db='yhj666',##数据库名
         charset='utf8',##连接编码
     )
@@ -31,10 +31,10 @@ def my_db(sq1):
 
 def my_db1(insert_sql):
     con = pymysql.Connect(
-        host='47.106.143.70',##mysql服务器地址
+        host='',##mysql服务器地址
         port=3306,##mysql服务器端口号
-        user='yhj666',##用户名
-        passwd='aa123456',##密码  J5p";~OVazNl%y)?
+        user='',##用户名
+        passwd='',##密码  J5p";~OVazNl%y)?
         db='yhj666',##数据库名
         charset='utf8',##连接编码
     )

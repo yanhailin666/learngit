@@ -6,7 +6,7 @@ def qhmysql(sq2,sq3):
         host='113.98.62.218',##mysql服务器地址  泉后测试库
         port=3306,##mysql服务器端口号
         user='devoa',##用户名
-        passwd='devoa*111',##密码  J5p";~OVazNl%y)?
+        passwd='de',##密码  J5p";~OVazNl%y)?
         db='queenoa',##数据库名
         charset='utf8',##连接编码
     )
