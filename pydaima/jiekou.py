@@ -21,10 +21,10 @@ def index():
 #阿里云数据库
 def my_db(sq1):
     conn = pymysql.Connect(
-        host='47.106.143.70',##mysql服务器地址
+        host='4',##mysql服务器地址
         port=3306,##mysql服务器端口号
-        user='yhj666',##用户名
-        passwd='aa123456',##密码  J5p";~OVazNl%y)?
+        user='y',##用户名
+        passwd='aa',##密码  J5p";~OVazNl%y)?
         db='yhj666',##数据库名
         charset='utf8',##连接编码
     )
