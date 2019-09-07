@@ -7,12 +7,12 @@
 #     return json.dumps(res,ensure_ascii=False)
 #
 # server.run(port=7777,debug=True,host='0.0.0.0')
-from flask_cors import CORS
+# from flask_cors import CORS
 import pymysql
 import flask,json
 server=flask.Flask(__name__)#__name__代表当前的python文件。把当前的python文件当做一个服务启动
 
-CORS(server, resources=r'/*')
+# CORS(server, resources=r'/*')
 @server.route('/index',methods=['get','post'])#第一个参数就是路径,第二个参数支持的请求方式，不写的话默认是get
 def index():
     res={'msg':'这是我开发的第一个借口','msg_code':0}
@@ -21,11 +21,11 @@ def index():
 #阿里云数据库
 def my_db(sq1):
     conn = pymysql.Connect(
-        host='4',##mysql服务器地址
+        host='localhost',##mysql服务器地址
         port=3306,##mysql服务器端口号
-        user='y',##用户名
-        passwd='aa',##密码  J5p";~OVazNl%y)?
-        db='yhj666',##数据库名
+        user='root',##用户名
+        passwd='',##密码  J5p";~OVazNl%y)?
+        db='mood_cabin',##数据库名
         charset='utf8',##连接编码
     )
 
@@ -47,7 +47,7 @@ def reg():
     username=flask.request.values.get('username')
     passwd=flask.request.values.get('passwd')
     if username and passwd:
-        sql='select * from my_user where username="%s";'%username
+        sql='select * from mood_cabin_user where username="%s";'%username
         uer=my_db(sql)
         print(sql)
         if uer:
@@ -67,9 +67,10 @@ def reg():
 @server.route('/login',methods=['get'])#登录函数
 def login():
     username=flask.request.values.get('username')
-    passwd=flask.request.values.get('passwd')
-    if username and passwd:
-        sql='select * from my_user where username="%s" and passwd="%s";'%(username,passwd)
+    pwd=flask.request.values.get('passwd')
+    print('11')
+    if username and pwd:
+        sql='select * from mood_cabin_user where username="%s" and pwd="%s";'%(username,pwd)
         uer=my_db(sql)
         print(sql)
         if uer:
