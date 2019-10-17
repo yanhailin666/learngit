@@ -1,7 +1,6 @@
 # coding: utf-8  json数据解析，保存到表格
 import xlwt
 
-
 #解析数据
 def jxjosn():
     jx=[]
@@ -9,9 +8,7 @@ def jxjosn():
     f = f.read()
     list1 = eval(f)
     for x,i in zip(range(1,150),list1['data']):
-     # print(list1['data'][i]['userName'],list1['data'][i]['mobileNo'])
         list=x,i['mobileNo'],i['memberId'],i['userName']
-     # print(i['mobileNo'])
         print(*list)   #加 * 号可以把打印列表外面的（）去掉
         jx.append(list)
     return jx
