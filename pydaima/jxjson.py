@@ -1,4 +1,4 @@
-# coding: utf-8  json数据解析，保存到表格
+# coding: utf-8  json打开文档数据解析，保存到表格
 import xlwt
 
 #解析数据
