@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*- #验证微信token
 
 from flask import Flask
 from flask import request
