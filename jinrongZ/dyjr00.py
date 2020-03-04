@@ -8,7 +8,7 @@ dmlist=["BTC_CW","BTC_NW","XRP_CQ"]
 bj=0.2997
 
 
-i=13
+i=2
 if i==1:
     while True:
         gp.gupiao(list1)
