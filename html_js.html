@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>这是一个标题</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.js"></script>
+
+</head>
+<body>
+
+
+<label>测试URL中的name是：</label>
+<input type="text" id="addname" />
+<label>测试URL中的id是：</label>
+<input type="text" id="addid" />
+
+
+<h2>测试js请求接口</h2>
+<p id="demo"></p>
+<p id="aa">32323</p>
+
+<p id="lotCode"></p>
+<p id="url"></p>
+<script>
+/**var text = '{ "sites" : [' +
+	'{ "name":"Runoob" , "url":"www.runoob.com" },' +
+	'{ "name":"Google" , "url":"www.google.com" },' +
+	'{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+
+obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML = obj.sites[1].name + " " + obj.sites[1].url;
+http://47.106.143.70:8087/login?username=aa1234&passwd=123456
+ */
+//js请求接口步骤,同步请求
+var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'http://m.mx5180.com/index1', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+	console.log(httpRequest)
+        /**
+         * 获取数据后的处理程序
+         */
+	    httpRequest.onreadystatechange = function () {
+            if (httpRequest.status == 200) {
+                var aa = httpRequest.responseText;//获取到json字符串，还需解析
+                console.log('aa');
+                document.getElementById('demo').innerHTML = aa   //赋值给demo
+
+            }
+        };
+</script>
+
+<br><br><br> <!--换3行-->
+
+<!--异步请求，点击搜索带参数请求接口-->
+<input type="text" id="i1">
+<!--<input type="text" id="i2">=-->
+<textarea style="width:300px;height:100px;"  id="content1" >欢迎来到扎心语句。。。</textarea>
+<input type="button" value="点击搜索" id="b1">
+
+<script>
+  $("#b1").on("click", function () {
+    $.ajax({
+      url:"http://127.0.0.1:8000/comon/bk/", //别忘了加双引号
+      type:"get",
+      //data:{"i1":$("#i1").val()}
+      data:{"i1":$("#i1").val(),"i2":$("#i2").val()}, //object类型，键值形式的，可以不给键加引号
+      success:function (data) {
+		data = JSON.parse(data);
+		console.log(data,'2200');
+		//$("#title").val(data[0].id);
+		//$("#content").val(data[0].title);
+		$("#content1").val(data.data);  //接口返回数据赋值给 id="content1"
+      }
+    })
+  })
+</script>
+
+<br><br><br><!--换3行-->
+
+<!--异步请求，点击不喜欢，换一换 不带参数请求接口-->
+<textarea style="width:300px;height:100px;"  id="content1" >欢迎来到扎心语句。。。</textarea>
+<input type="button" value="不喜欢，换一换" id="b2">
+
+<script>
+  $("#b2").on("click", function () {
+    $.ajax({
+      url:"http://cn5.mx5180.com/web/haha1", //别忘了加双引号
+      type:"get",
+      //data:{"i1":$("#i1").val(),"i2":$("#i2").val()}, //object类型，键值形式的，可以不给键加引号
+      success:function (data) {
+		data = JSON.parse(data);
+		console.log(data,'2200');
+		//$("#title").val(data[0].id);
+		//$("#content").val(data[0].title);
+		$("#content1").val(data[0].name);//接口返回数据赋值给 id="content1"
+      }
+    })
+  })
+</script>
+
+
+<br><br><br><!--换3行-->
+
+
+<Script language="javascript">    //获取页面HTML URL中"?"符后的字串
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+var lotCode = GetRequest()['name']; //调用URL参数的name
+document.getElementById('lotCode').innerHTML =lotCode //赋值给 id=lotCode
+document.getElementById('url').innerHTML =url  //赋值给 id=lotCode
+</script>
+
+
+<script> //埋点
+var href =window.location.href  //获取页面HTML URL
+var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'http://m.mx5180.com/index1?'+'id='+href, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  获取到URL参数发送给后端 统计埋点数据
+
+var href =window.location.href
+alert(href)
+</script>
+
+
+//设置或获取对象指定的文件名或路径。
+alert(window.location.pathname);
+//设置或获取整个 URL 为字符串。
+alert(window.location.href);
+//设置或获取与 URL 关联的端口号码。
+alert(window.location.port);
+//设置或获取 URL 的协议部分。
+alert(window.location.protocol);
+//设置或获取 href 属性中在井号“#”后面的分段。
+alert(window.location.hash);
+//设置或获取 location 或 URL 的 hostname 和 port 号码。
+alert(window.location.host);
+//设置或获取 href 属性中跟在问号后面的部分。
+alert(window.location.search);
+
+
+</html>
